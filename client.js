@@ -12,12 +12,13 @@ const connect = function() {
 
   conn.on('connect', () => {
     console.log("Successfully connected to game server");
+
     //send name to server
     conn.write("Name: xzr");
     //setInterval to move up automatically
     //setInterval(() => { conn.write("Move: up") }, 50)
-
   })
+
   //present incoming data
   conn.on('data', (data) => {
     console.log(data);
@@ -26,8 +27,4 @@ const connect = function() {
   return conn;
 };
 
-
-console.log("Connecting ...");
-connect();
-
-module.exports = connect;
+module.exports = {connect};
